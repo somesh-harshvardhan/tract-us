@@ -29,8 +29,20 @@ export async function updateSession(request: NextRequest) {
     }
   );
 
+  const authPaths = ["/login", "/signup"];
+
   // refreshing the auth token
-  await supabase.auth.getUser();
+  const {
+    error,
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (user && authPaths.includes(request.nextUrl.pathname)) {
+    return NextResponse.redirect(new URL("/", request.url));
+  }
+  if (!authPaths.includes(request.nextUrl.pathname) && error) {
+    return NextResponse.redirect(new URL("/login", request.url));
+  }
 
   return supabaseResponse;
 }
