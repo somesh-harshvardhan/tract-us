@@ -162,8 +162,8 @@ const Contracts = ({ contracts: c }: ContractsT) => {
           </Button>
         </div>
       </div>
-      <div className=" flex items-center justify-between">
-        <div className="flex flex-col md:flex-row gap-4 mb-4 basis-1/2 my-7">
+      <div className=" flex md:items-center items-stretch justify-between md:flex-row flex-col">
+        <div className="flex flex-col md:flex-row gap-4 mb-4 md:basis-1/2 basis-full my-7">
           {/* Search Input */}
           <Input
             placeholder="Search by name..."
