@@ -1,10 +1,9 @@
 "use client";
 
-import React, { SetStateAction, useEffect } from "react";
-import { ContractsT } from "../views/Contracts";
+import { useEffect } from "react";
 import { createClient } from "@/utils/supabase/client";
 
-const useSupaRealtime = async ({
+const useSupaRealtime = ({
   channel = "*",
   schema = "public",
   table,

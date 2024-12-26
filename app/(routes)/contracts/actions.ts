@@ -87,10 +87,7 @@ export const handleContractAction = async (form: FormData) => {
 
 export const handleDeleteAction = async (id: string) => {
   const supabase = await createClient();
-  const { data, error } = await supabase
-    .from("contracts")
-    .delete()
-    .eq("id", id);
+  const { error } = await supabase.from("contracts").delete().eq("id", id);
 
   if (error) {
     throw new Error(`Error deleting contract: ${error.message}`);

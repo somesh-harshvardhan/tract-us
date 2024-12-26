@@ -22,7 +22,6 @@ import { useRouter } from "next/navigation";
 export default function LoginPage() {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
-  const [loading, setLoading] = useState(false);
   const { register, getValues } = useForm({
     defaultValues: {
       email: "" as string,
